@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 
 namespace FunctionChallenges
@@ -7,7 +8,7 @@ namespace FunctionChallenges
     {
         static void Main(string[] args)
         {
-            int challenge = 3; // Edit this to access the challenges
+            int challenge = 4; // Edit this to access the challenges
             switch (challenge)
             {
                 case 1:
@@ -31,8 +32,40 @@ namespace FunctionChallenges
 
                     break;
                 case 4:
+                    UpdateProfile();
                     break;
             }
+        }
+
+        private static void UpdateProfile()
+        {
+            string name = "John Doe",
+                email = "john@gmail.com";
+            int age = 28;
+            Console.WriteLine("Initial Profile:");
+            Console.WriteLine($"Name: {name}");
+            Console.WriteLine($"Age: {age}");
+            Console.WriteLine($"Email: {email}");
+            UpdateProfileHelper(ref name, ref age, ref email);
+            Console.WriteLine("updated Profile:");
+            Console.WriteLine($"Name: {name}");
+            Console.WriteLine($"Age: {age}");
+            Console.WriteLine($"Email: {email}");
+        }
+
+        private static void UpdateProfileHelper(ref string name, ref int age, ref string email)
+        {
+            Console.Write("\nEnter your new name: ");
+            name = Console.ReadLine();
+            Console.WriteLine($"Name updated to: {name}");
+
+            Console.Write("Enter your new age: ");
+            age = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine($"Age updated to: {age}");
+
+            Console.Write("Enter your new email: ");
+            email = Console.ReadLine();
+            Console.WriteLine($"email updated to: {email}\n");
         }
 
         private static string ReverseWords(string str)
