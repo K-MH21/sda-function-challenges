@@ -7,7 +7,7 @@ namespace FunctionChallenges
     {
         static void Main(string[] args)
         {
-            int challenge = 2; // Edit this to access the challenges
+            int challenge = 3; // Edit this to access the challenges
             switch (challenge)
             {
                 case 1:
@@ -22,10 +22,32 @@ namespace FunctionChallenges
                     GuessingGame();
                     break;
                 case 3:
+                    Console.WriteLine(ReverseWords("This is the original sentence!")); // Expected Outcome: "sihT si eht lanigiro !ecnetnes"
+                    Console.WriteLine(ReverseWords("Hello World")); // Expected Outcome: "olleH dlroW"
+                    Console.WriteLine(ReverseWords("Apple Banana Cherry")); // Expected Outcome: "elppA ananaB yrrehC"
+                    Console.WriteLine(ReverseWords("Programming is fun")); // Expected Outcome: "gnimmargorP si nuf"
+                    Console.WriteLine(ReverseWords("Keep it simple")); // Expected Outcome: "peeK ti elpmis"
+                    Console.WriteLine(ReverseWords("SingleWord")); // Expected Outcome: "droWelgniS"
+
                     break;
                 case 4:
                     break;
             }
+        }
+
+        private static string ReverseWords(string str)
+        {
+            string[] words = str.Split(" ");
+            string reversedWords = "";
+            for (int i = 0; i < words.Length; i++)
+            {
+                for (int j = words[i].Length - 1; j >= 0; j--)
+                {
+                    reversedWords += words[i][j];
+                }
+                reversedWords += " ";
+            }
+            return reversedWords;
         }
 
         private static void GuessingGame()
