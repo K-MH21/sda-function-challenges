@@ -8,32 +8,38 @@ namespace FunctionChallenges
     {
         static void Main(string[] args)
         {
-            int challenge = 4; // Edit this to access the challenges
-            switch (challenge)
+            // int challenge = 4; // Edit this to access the challenges
+            for (int challenge = 1; challenge <= 4; challenge++)
             {
-                case 1:
-                    Console.WriteLine(StringNumberProcessor("Hello", 100, 200, "World"));
-                    Console.WriteLine(StringNumberProcessor("Apple", "Banana", 50, 150, "Cherry"));
-                    Console.WriteLine(StringNumberProcessor(10, 20, 30));
-                    Console.WriteLine(StringNumberProcessor(500, "Mixed", 1000, "Types", 300));
-                    Console.WriteLine(StringNumberProcessor("Single", 1));
-                    Console.WriteLine(StringNumberProcessor("Only", "Strings", "Here"));
-                    break;
-                case 2:
-                    GuessingGame();
-                    break;
-                case 3:
-                    Console.WriteLine(ReverseWords("This is the original sentence!")); // Expected Outcome: "sihT si eht lanigiro !ecnetnes"
-                    Console.WriteLine(ReverseWords("Hello World")); // Expected Outcome: "olleH dlroW"
-                    Console.WriteLine(ReverseWords("Apple Banana Cherry")); // Expected Outcome: "elppA ananaB yrrehC"
-                    Console.WriteLine(ReverseWords("Programming is fun")); // Expected Outcome: "gnimmargorP si nuf"
-                    Console.WriteLine(ReverseWords("Keep it simple")); // Expected Outcome: "peeK ti elpmis"
-                    Console.WriteLine(ReverseWords("SingleWord")); // Expected Outcome: "droWelgniS"
+                Console.WriteLine($"======== Challenege {challenge} ========");
+                switch (challenge)
+                {
+                    case 1:
+                        Console.WriteLine(StringNumberProcessor("Hello", 100, 200, "World"));
+                        Console.WriteLine(
+                            StringNumberProcessor("Apple", "Banana", 50, 150, "Cherry")
+                        );
+                        Console.WriteLine(StringNumberProcessor(10, 20, 30));
+                        Console.WriteLine(StringNumberProcessor(500, "Mixed", 1000, "Types", 300));
+                        Console.WriteLine(StringNumberProcessor("Single", 1));
+                        Console.WriteLine(StringNumberProcessor("Only", "Strings", "Here"));
+                        break;
+                    case 2:
+                        GuessingGame();
+                        break;
+                    case 3:
+                        Console.WriteLine(ReverseWords("This is the original sentence!")); // Expected Outcome: "sihT si eht lanigiro !ecnetnes"
+                        Console.WriteLine(ReverseWords("Hello World")); // Expected Outcome: "olleH dlroW"
+                        Console.WriteLine(ReverseWords("Apple Banana Cherry")); // Expected Outcome: "elppA ananaB yrrehC"
+                        Console.WriteLine(ReverseWords("Programming is fun")); // Expected Outcome: "gnimmargorP si nuf"
+                        Console.WriteLine(ReverseWords("Keep it simple")); // Expected Outcome: "peeK ti elpmis"
+                        Console.WriteLine(ReverseWords("SingleWord")); // Expected Outcome: "droWelgniS"
 
-                    break;
-                case 4:
-                    UpdateProfile();
-                    break;
+                        break;
+                    case 4:
+                        UpdateProfile();
+                        break;
+                }
             }
         }
 
