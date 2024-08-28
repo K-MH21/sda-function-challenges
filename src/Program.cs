@@ -91,7 +91,7 @@ namespace FunctionChallenges
 
         private static void GuessingGame()
         {
-            int number = new Random().Next(9) + 1; // 1 to 10
+            int number = new Random().Next(10) + 1; // 1 to 10
             Console.WriteLine("Guess a number between 1 and 10");
             while (true)
             {
