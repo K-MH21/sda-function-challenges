@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace FunctionChallenges
 {
@@ -62,16 +63,57 @@ namespace FunctionChallenges
         private static void UpdateProfileHelper(ref string name, ref int age, ref string email)
         {
             Console.Write("\nEnter your new name: ");
-            name = Console.ReadLine();
-            Console.WriteLine($"Name updated to: {name}");
+            while (true)
+            {
+                name = Console.ReadLine();
+                if (name == "")
+                {
+                    Console.WriteLine("Empty input");
+                    continue;
+                }
+                if (double.TryParse(name, out _))
+                {
+                    Console.WriteLine("Input is numbers");
+                    continue;
+                }
+                Console.WriteLine($"Name updated to: {name}");
+                break;
+            }
 
             Console.Write("Enter your new age: ");
-            age = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine($"Age updated to: {age}");
+            while (true)
+            {
+                if (!int.TryParse(Console.ReadLine(), out age))
+                {
+                    Console.WriteLine("Input contains non number symbols");
+                    continue;
+                }
+                if (!(0 < age && age < 100))
+                {
+                    Console.WriteLine("Input is either negative contains >= 100");
+                    continue;
+                }
+                Console.WriteLine($"Age updated to: {age}");
+                break;
+            }
 
             Console.Write("Enter your new email: ");
-            email = Console.ReadLine();
-            Console.WriteLine($"email updated to: {email}\n");
+            while (true)
+            {
+                email = Console.ReadLine();
+                if (email == "")
+                {
+                    Console.WriteLine("Empty input");
+                    continue;
+                }
+                if (!Regex.IsMatch(email, @"\w+@\w+.com"))
+                {
+                    Console.WriteLine("Non-email format");
+                    continue;
+                }
+                Console.WriteLine($"email updated to: {email}\n");
+                break;
+            }
         }
 
         private static string ReverseWords(string str)
